@@ -8,6 +8,7 @@ from commandlinebrowser import CommandLineBrowser
 
 logging.basicConfig(level=logging.DEBUG)
 
+
 class RamNode(BaseModel):
     """Rammode stores a ramdisk in ram nodes."""
 
@@ -22,7 +23,7 @@ class RamNode(BaseModel):
             output += "%s\n" % (row)
         return output
 
-    def read(self, path, offset = 0, count = None):
+    def read(self, path, offset=0, count=None):
         offset = int(offset) if offset else 0
         count = int(count) if count else None
         logging.debug("read(%s,%d,%s)" % (path, offset, str(count)))
@@ -35,7 +36,7 @@ class RamNode(BaseModel):
         else:
             return self._childrens[node].read(rest, offset, count)
 
-    def update(self, path, data, offset = None):
+    def update(self, path, data, offset=None):
         offset = int(offset) if offset else 0
         logging.debug("update(%s,%s,%d)" % (path, str(data), offset))
         node, delim, rest = path.partition(sep)
@@ -71,6 +72,6 @@ class RamNode(BaseModel):
             return self._childrens[node].list(rest)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
     CommandLineBrowser(RamNode()).run()
