@@ -1,4 +1,3 @@
-
 __NOTE!__  tool is in early lab status
 
 Service Mount
@@ -35,6 +34,7 @@ Model status
 ------------
 
 | service | status |
+| :------ | :----- |
 | zookeeper | beta - basic navigation seems to work |
 
 Running
